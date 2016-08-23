@@ -13,3 +13,6 @@ git commit -m "message"
 ### asks for email and passwd
 heroku login
 git push heroku master
+
+### App is live at
+http://tranquil-beyond-58925.herokuapp.com/index
