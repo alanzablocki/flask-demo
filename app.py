@@ -6,7 +6,7 @@ from bokeh.charts import Scatter
 from bokeh.plotting import figure, show
 from bokeh.io import output_notebook
 from bokeh.embed import components
-import matplotlib.pyplot as plt 
+#import matplotlib.pyplot as plt 
 
 # define functions and classes
 
