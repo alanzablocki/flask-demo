@@ -52,7 +52,7 @@ def graph():
     df = df.set_index('Date')
     df.index = pd.to_datetime(df.index)
 
-    output_notebook()
+    #output_notebook()
     p = figure(width=400, height=300, x_axis_type="datetime",x_axis_label="Date",title=stock + " Stock")
     p.line(df.index, df['Open'], color='green', legend='Opening Price')
     #show(p)
