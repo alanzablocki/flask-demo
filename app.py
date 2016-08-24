@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect
-#import requests
-#import numpy as np
-#import pandas as pd
-#from bokeh.charts import Scatter
-#from bokeh.plotting import figure, show
-##from bokeh.io import output_notebook
-#from bokeh.embed import components
-#import matplotlib.pyplot as plt 
+import requests
+import numpy as np
+import pandas as pd
+from bokeh.charts import Scatter
+from bokeh.plotting import figure, show
+from bokeh.io import output_notebook
+from bokeh.embed import components
+import matplotlib.pyplot as plt 
 
 # define functions and classes
 
@@ -24,8 +24,8 @@ def main():
 # probably do 
 @app.route('/index') # might have to add some stuff here!
 def index():
-    return render_template('index.html')
-"""
+#    return render_template('index.html')
+
     # 1 select stock to view
     stock = "AAPL"
     # 2 get stock api
@@ -55,7 +55,7 @@ def index():
     #show(p)
     script, div = components(p)
     return render_template('index.html', script=script, div=div)
-"""
+
 if __name__ == '__main__':
   app.run(port=33507)
   #app.run(host='0.0.0.0')
