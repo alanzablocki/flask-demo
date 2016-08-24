@@ -19,11 +19,11 @@ def main():
 @app.route('/index') # might have to add some stuff here!
 def index():
     # not sure what goes here yet
-    return render_template('index.html')
+    #return render_template('index.html')
 
 # probably do 
-@app.route('/graph') # might have to add some stuff here!
-def graph():
+#@app.route('/graph') # might have to add some stuff here!
+#def graph():
     # 1 select stock to view
     stock = "AAPL"
     # 2 get stock api
@@ -52,7 +52,7 @@ def graph():
     p.line(df.index, df['Open'], color='green', legend='Opening Price')
     #show(p)
     script, div = components(p)
-    return render_template('graph.html', script=script, div=div)
+    return render_template('index.html', script=script, div=div)
 
 if __name__ == '__main__':
   #app.run(port=33507)
