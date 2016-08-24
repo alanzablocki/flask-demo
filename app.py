@@ -16,7 +16,7 @@ app = Flask(__name__)
 def main():
   return redirect('/index')    # redirect to index page
 
-@app.route('/index') # might have to add some stuff here!
+@app.route('/index',methods=['GET','POST']) # might have to add some stuff here!
 def index():
     # not sure what goes here yet
     return redirect('/graph') #otherwise, go to the graph page
@@ -25,7 +25,7 @@ def index():
     #return render_template('index.html')
 
 # probably do 
-@app.route('/graph') # might have to add some stuff here!
+@app.route('/graph',methods=['GET','POST']) # might have to add some stuff here!
 def graph():
 #    return render_template('index.html')
 
