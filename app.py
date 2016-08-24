@@ -16,14 +16,17 @@ app = Flask(__name__)
 def main():
   return redirect('/index')    # redirect to index page
 
-#@app.route('/index') # might have to add some stuff here!
-#def index():
+@app.route('/index') # might have to add some stuff here!
+def index():
     # not sure what goes here yet
+    return redirect('/graph') #otherwise, go to the graph page
+    #return render_template('index.html',form=form) #if request method was GET
+    
     #return render_template('index.html')
 
 # probably do 
-@app.route('/index') # might have to add some stuff here!
-def index():
+@app.route('/graph') # might have to add some stuff here!
+def graph():
 #    return render_template('index.html')
 
     # 1 select stock to view
@@ -54,7 +57,7 @@ def index():
     p.line(df.index, df['Open'], color='green', legend='Opening Price')
     #show(p)
     script, div = components(p)
-    return render_template('index.html', script=script, div=div)
+    return render_template('graph.html', script=script, div=div)
 
 if __name__ == '__main__':
   app.run(port=33507)
