@@ -22,8 +22,10 @@ def index():
     #return render_template('index.html')
 
 # probably do 
-#@app.route('/graph') # might have to add some stuff here!
-#def graph():
+@app.route('/index') # might have to add some stuff here!
+def index():
+     return render_template('index.html')
+"""
     # 1 select stock to view
     stock = "AAPL"
     # 2 get stock api
@@ -53,7 +55,7 @@ def index():
     #show(p)
     script, div = components(p)
     return render_template('index.html', script=script, div=div)
-
+"""
 if __name__ == '__main__':
-  #app.run(port=33507)
-  app.run(host='0.0.0.0')
+  app.run(port=33507)
+  #app.run(host='0.0.0.0')
