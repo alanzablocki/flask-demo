@@ -24,40 +24,35 @@ def index():
 # probably do 
 @app.route('/graph') # might have to add some stuff here!
 def graph():
+    # 1 select stock to view
+    stock = "AAPL"
+    # 2 get stock api
+    url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock
+    # select dates
+    # get the data
 
+    # from tdi blog, slightly different than p171 in Pandas Wes McKinney
+    session = requests.Session()
+    session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
+    raw_data = session.get(url)
 
-# 1 select stock to view
-stock = "AAPL"
-# 2 get stock api
-url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock
+    # raw_data.raise_for_status() or .status_code
+    # print "status code: " + str(raw_data.status_code)
 
-# select dates
+    # json decode
+    rd = raw_data.json()
 
-# get the data
+    # create pandas data frame
+    df = pd.DataFrame(rd['data'],columns=rd['column_names'])
+    df = df.set_index('Date')
+    df.index = pd.to_datetime(df.index)
 
-# from tdi blog, slightly different than p171 in Pandas Wes McKinney
-session = requests.Session()
-session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
-raw_data = session.get(url)
-
-# raw_data.raise_for_status() or .status_code
-# print "status code: " + str(raw_data.status_code)
-
-# json decode
-rd = raw_data.json()
-
-# create pandas data frame
-df = pd.DataFrame(rd['data'],columns=rd['column_names'])
-df = df.set_index('Date')
-df.index = pd.to_datetime(df.index)
-
-output_notebook()
-p = figure(width=400, height=300, x_axis_type="datetime",x_axis_label="Date",title=stock + " Stock")
-p.line(df.index, df['Open'], color='green', legend='Opening Price')
-#show(p)
-
-script, div = components(p)
-return render_template('graph.html', script=script, div=div)
+    output_notebook()
+    p = figure(width=400, height=300, x_axis_type="datetime",x_axis_label="Date",title=stock + " Stock")
+    p.line(df.index, df['Open'], color='green', legend='Opening Price')
+    #show(p)
+    script, div = components(p)
+    return render_template('graph.html', script=script, div=div)
 
 if __name__ == '__main__':
   app.run(port=33507)
