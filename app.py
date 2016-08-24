@@ -16,8 +16,8 @@ app = Flask(__name__)
 def main():
   return redirect('/index')    # redirect to index page
 
-@app.route('/index') # might have to add some stuff here!
-def index():
+#@app.route('/index') # might have to add some stuff here!
+#def index():
     # not sure what goes here yet
     #return render_template('index.html')
 
