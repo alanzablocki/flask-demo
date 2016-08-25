@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
+from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 import requests
 import numpy as np
 import pandas as pd
@@ -11,6 +12,12 @@ from bokeh.embed import components
 # define functions and classes
 
 app = Flask(__name__)
+
+app.config.from_object(__name__)
+app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
+
+class ReusableForm(Form):
+    stock_name = TextField('Name:', validators=[validators.required()])
 
 @app.route('/')
 def main():
@@ -27,12 +34,27 @@ def index():
 # probably do 
 @app.route('/graph',methods=['GET','POST']) # might have to add some stuff here!
 def graph():
-#    return render_template('index.html')
+    #return render_template('index.html')
+
+    form = ReusableForm(request.form)
+    print form.errors
+    if request.method == 'POST':
+        stock_name=request.form['stock_name']
+        print stock_name
+        if form.validate():
+            # Save the comment here.
+            flash('Thanks for registration ' + name)
+        else:
+            flash('Error: All the form fields are required. ')
+
+    #return render_template('hello.html', form=form)     
 
     # 1 select stock to view
-    stock = "AAPL"
+    # stock_name = "AAPL"
+    # not used if our for works...
+    
     # 2 get stock api
-    url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock
+    url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock_name
     # select dates
     # get the data
 
@@ -53,11 +75,11 @@ def graph():
     df.index = pd.to_datetime(df.index)
 
     #output_notebook()
-    p = figure(width=400, height=300, x_axis_type="datetime",x_axis_label="Date",title=stock + " Stock")
+    p = figure(width=400, height=300, x_axis_type="datetime",x_axis_label="Date",title=stock_name + " Stock")
     p.line(df.index, df['Open'], color='green', legend='Opening Price')
     #show(p)
     script, div = components(p)
-    return render_template('graph.html', script=script, div=div)
+    return render_template('graph.html', script=script, div=div, form=form) # added form=form
 
 if __name__ == '__main__':
   app.run(port=33507)
