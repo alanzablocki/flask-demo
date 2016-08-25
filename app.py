@@ -32,14 +32,5 @@ def index():
 def success():
     return render_template('success.html')  # render a template
 
-            # Save the comment here.
-# render the graph here?
-
-#            flash('Thanks for registration ' + name)
-#        else:
-#            flash('Error: All the form fields are required. ')
-#
-#    return render_template('hello.html', form=form)
-
 if __name__ == "__main__":
     app.run(debug = False)
