@@ -42,7 +42,7 @@ def index():
             flash('Error: Please enter a valid ticker symbol. ')
     return render_template('index.html', form=form)
 
-@app.route('/graph/name', methods=['GET','POST']) # might have to add some stuff here!
+@app.route('/graph/<name>', methods=['GET','POST']) # might have to add some stuff here!
 def graph(name):
 
 # moved name field to here
