@@ -32,8 +32,6 @@ def index():
     print form.errors
     if request.method == 'POST':
         name=request.form['name'].upper()
-#        print name
-
         if form.validate():
 	    return redirect(url_for("graph", name=name))
 	    #return redirect('/graph')
@@ -45,14 +43,10 @@ def index():
 @app.route('/graph/<name>', methods=['GET','POST']) # might have to add some stuff here!
 def graph(name):
 
-# moved name field to here
-#name=request.form['name'].upper()
-
-
     stock_name = name # "AAPL" #name
-    # 2 get stock api
+    # get stock api
     url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock_name
-    # select dates
+    # select dates - future version
 
     # get the data
 
@@ -82,4 +76,3 @@ def graph(name):
 
 if __name__ == "__main__":
   app.run(port=33507)
-#    app.run(debug = False)
