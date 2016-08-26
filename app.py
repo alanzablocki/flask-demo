@@ -30,8 +30,8 @@ def index():
     form = ReusableForm(request.form)
     print form.errors
     if request.method == 'POST':
-        name=request.form['name'].upper()
-        print name
+#        name=request.form['name'].upper()
+#        print name
 
         if form.validate():
 	    return redirect('/graph')
@@ -42,7 +42,12 @@ def index():
 
 @app.route('/graph', methods=['GET','POST']) # might have to add some stuff here!
 def graph():
-    stock_name = "AAPL" #a name
+
+# moved name field to here
+name=request.form['name'].upper()
+
+
+    stock_name = name
     # 2 get stock api
     url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock_name
     # select dates
