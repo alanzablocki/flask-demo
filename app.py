@@ -22,8 +22,8 @@ def index():
         print name
 
         if form.validate():
-	    #return redirect('/success')
-	    return redirect('/graph')
+	    return redirect('/success')
+	    #return redirect('/graph')
             #flash('Thanks for registration ' + name)
         else:
             flash('Error: All the form fields are required. ')

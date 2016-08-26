@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Successful Form Demo</title>
+<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ 
+    </head>
+    <body>
+
+
+<div class="container">
+
+
+  <h2>Success, thanks!</h2>
+
+  <br>
+</div>
+<br>
+</div>
+</div>
+</body>
+</html>
+
