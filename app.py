@@ -53,7 +53,7 @@ def graph():
     p.line(df.index, df['Open'], color='green', legend='Opening Price')
     
     script, div = components(p)
-    return render_template('graph.html', script=script, div=div, form=form) # added form=form
+    return render_template('graph.html', script=script, div=div) #, form=form) # added form=form
 
 
 @app.route('/success')
