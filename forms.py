@@ -1,5 +1,5 @@
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, BooleanField
-
+from wtforms import Form, TextField, TextAreaField, StringField, SubmitField, BooleanField
+from wtforms import validators, ValidationError
 class ReusableForm(Form):
     name = TextField('Name:', validators=[validators.required()])
     clPrice = BooleanField('Closing Price')
