@@ -21,8 +21,18 @@
     {{ form.csrf }}
     <div class="form-group">
       <label for="name">Stock ticker:</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="What's your name?">
+      <input type="text" class="form-control" id="name" name="name" placeholder="e.g., AAPL">
     </div>
+<div style = font-size:14px; font-weight:bold; margin-left:150px;>
+               <br>
+               {{ form.clPrice }} {{ form.clPrice.label }}
+               {{ form.adjclPrice }} {{ form.adjclPrice.label }}
+               {{ form.opPrice }} {{ form.opPrice.label }}
+               {{ form.adjopPrice }} {{ form.adjopPrice.label }}
+
+<br>
+            </div>
+
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
 

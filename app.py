@@ -15,6 +15,10 @@ app = Flask(__name__)
 
 class ReusableForm(Form):
     name = TextField('Name:', validators=[validators.required()])
+    clPrice = BooleanField('Closing Price')
+    adjclPrice = BooleanField('Adj. Closing Price')
+    opPrice = BooleanField('Opening Price')
+    adjopPrice = BooleanField('Adjusted Opening Price')
 
 @app.route('/')
 def main():
