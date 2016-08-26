@@ -13,7 +13,7 @@ class ReusableForm(Form):
 def main():
     return redirect('/index')
 
-@app.route("/index", methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     form = ReusableForm(request.form)
     print form.errors
@@ -29,8 +29,7 @@ def index():
             flash('Error: All the form fields are required. ')
     return render_template('index.html', form=form)
 
-@app.route('/graph') 
-#,methods=['GET','POST']) # might have to add some stuff here!
+@app.route('/graph', methods=['GET','POST']) # might have to add some stuff here!
 def graph():
     stock_name = "AAPL" #name
     # 2 get stock api
