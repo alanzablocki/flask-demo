@@ -21,6 +21,15 @@ class ReusableForm(Form):
     opPrice = BooleanField('Opening Price')
     adjopPrice = BooleanField('Adjusted Opening Price')
 
+def getUserInput():
+    #get the stock ticker and make it uppercase
+    stockTicker = request.form['name'].upper()
+    #turn checked features into a list
+#    features = request.form.getlist('feature')
+    
+return stockTicker
+
+
 @app.route('/')
 def main():
     return redirect('/index')
@@ -43,11 +52,12 @@ def index():
 @app.route('/graph', methods=['GET','POST']) # might have to add some stuff here!
 def graph():
 
+stockTicker = getUserInput()
 # moved name field to here
 #name=request.form['name'].upper()
 
 
-    stock_name = "AAPL" #name
+    stock_name = stockTicker #"AAPL" #name
     # 2 get stock api
     url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock_name
     # select dates
