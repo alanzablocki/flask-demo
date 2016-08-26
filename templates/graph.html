@@ -12,41 +12,6 @@
 	</head>
 	<body>
 		<div class=page>
-<form  action="" method="post" role="form">
-    {{ form.csrf }}
-    <div class="form-group">
-      <label for="stock_name">stock_name:</label>
-      <input type="text" class="form-control" id="stock_name" name="stock_name" placeholder="Stock name?">
-      <br>
-
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-
- <br>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-
-        {% for message in messages %}
-            {% if "Error" not in message[1]: %}
-                <div class="alert alert-info">
-                <strong>Success! </strong> {{ message[1] }}
-                </div>
-            {% endif %}
-
-            {% if "Error" in message[1]: %}
-                <div class="alert alert-warning">
-                {{ message[1] }}
-                </div>
-            {% endif %}
-        {% endfor %}
-            {% endif %}
-        {% endwith %}
-
-</div>
-<br>
-</div>
-
   			<h1>
   				Beta Results <br>
   				<a href="/index">Back</a>
