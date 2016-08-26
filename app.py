@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, request, redirect
+from flask import Flask, render_template, flash, request, redirect, url_for
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, BooleanField
 import requests
 import numpy as np
@@ -35,14 +35,15 @@ def index():
 #        print name
 
         if form.validate():
-	    return redirect('/graph')
+	    return redirect(url_for("graph", name=name))
+	    #return redirect('/graph')
             #flash('Thanks for registration ' + name)
         else:
             flash('Error: Please enter a valid ticker symbol. ')
     return render_template('index.html', form=form)
 
 @app.route('/graph', methods=['GET','POST']) # might have to add some stuff here!
-def graph():
+def graph(name):
 
 # moved name field to here
 #name=request.form['name'].upper()
