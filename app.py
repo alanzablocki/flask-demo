@@ -30,7 +30,7 @@ def index():
     form = ReusableForm(request.form)
     print form.errors
     if request.method == 'POST':
-#        name=request.form['name'].upper()
+        name=request.form['name'].upper()
 #        print name
 
         if form.validate():
