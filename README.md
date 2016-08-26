@@ -2,11 +2,10 @@
 
 # Known issues
 
- * only AAPL at the moment cannot pass string to graph method yet - hence Beta results
+ * only AAPL at the moment, still need to pass ticker string to graph method
  * no error if ticker true but no check box selected
- * no date ranges later
+ * no date ranges, add later
  * bokeh plot does not start with zoom functionality but TDI example does
- * change : Please enter a stock ticker eg. GOOG, and check desired features to light gray
 
 ### App is live at
 http://tranquil-beyond-58925.herokuapp.com/index
