@@ -25,9 +25,8 @@ def getUserInput():
     #get the stock ticker and make it uppercase
     stockTicker = request.form['name'].upper()
     #turn checked features into a list
-#    features = request.form.getlist('feature')
-    
-return stockTicker
+    #features = request.form.getlist('feature')
+    return stockTicker
 
 
 @app.route('/')
@@ -52,7 +51,7 @@ def index():
 @app.route('/graph', methods=['GET','POST']) # might have to add some stuff here!
 def graph():
 
-stockTicker = getUserInput()
+    stockTicker = getUserInput()
 # moved name field to here
 #name=request.form['name'].upper()
 
