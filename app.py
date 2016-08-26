@@ -37,7 +37,7 @@ def index():
 
 @app.route('/graph', methods=['GET','POST']) # might have to add some stuff here!
 def graph():
-    stock_name = name
+    stock_name = "AAPL" #a name
     # 2 get stock api
     url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock_name
     # select dates
