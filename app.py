@@ -42,10 +42,6 @@ def graph():
     session = requests.Session()
     session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
     raw_data = session.get(url)
-
-    session = requests.Session()
-    session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
-    raw_data = session.get(url)
     # json decode
     rd = raw_data.json()
 
