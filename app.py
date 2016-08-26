@@ -42,14 +42,14 @@ def index():
             flash('Error: Please enter a valid ticker symbol. ')
     return render_template('index.html', form=form)
 
-@app.route('/graph', methods=['GET','POST']) # might have to add some stuff here!
+@app.route('/graph/name', methods=['GET','POST']) # might have to add some stuff here!
 def graph(name):
 
 # moved name field to here
 #name=request.form['name'].upper()
 
 
-    stock_name = "AAPL" #name
+    stock_name = name # "AAPL" #name
     # 2 get stock api
     url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock_name
     # select dates
