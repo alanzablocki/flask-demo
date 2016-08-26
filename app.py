@@ -14,12 +14,12 @@ app = Flask(__name__)
 app.config.from_object(__name__)				# removing next two lines does not
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'	# give you the Error messages
 
-#class ReusableForm(Form):
-#    name = TextField('Name:', validators=[validators.required()])
-#    clPrice = BooleanField('Closing Price')
-#    adjclPrice = BooleanField('Adj. Closing Price')
-#    opPrice = BooleanField('Opening Price')
-#    adjopPrice = BooleanField('Adjusted Opening Price')
+class ReusableForm(Form):
+    name = TextField('Name:', validators=[validators.required()])
+    clPrice = BooleanField('Closing Price')
+    adjclPrice = BooleanField('Adj. Closing Price')
+    opPrice = BooleanField('Opening Price')
+    adjopPrice = BooleanField('Adjusted Opening Price')
 
 @app.route('/')
 def main():
