@@ -44,10 +44,10 @@ def index():
 def graph():
 
 # moved name field to here
-name=request.form['name'].upper()
+#name=request.form['name'].upper()
 
 
-    stock_name = name
+    stock_name = "AAPL" #name
     # 2 get stock api
     url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock_name
     # select dates
