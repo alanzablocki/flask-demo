@@ -62,7 +62,7 @@ def graph():
     df.index = pd.to_datetime(df.index)
 
     p = figure(width=600, height=500, x_axis_type="datetime",x_axis_label="Date",\
-    title=stock_name + " Stock") # , legend = 'top_left') # this throws an error
+    title=stock_name + " Stock", toolbar_location = "above") # , legend = 'top_left') # this throws an error
     p.line(df.index, df['Open'], color='green', legend='Opening Price')
     # p.legend.orientation = "top_left" # returns server error
     script, div = components(p)
