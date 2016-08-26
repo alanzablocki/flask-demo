@@ -29,19 +29,19 @@ def index():
         print name
 
         if form.validate():
-	    #return redirect('/success')
 	    return redirect('/graph')
             #flash('Thanks for registration ' + name)
         else:
-            flash('Error: All the form fields are required. ')
+            flash('Error: Please enter a valid ticker symbol. ')
     return render_template('index.html', form=form)
 
 @app.route('/graph', methods=['GET','POST']) # might have to add some stuff here!
 def graph():
-    stock_name = "AAPL" #name
+    stock_name = name
     # 2 get stock api
     url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock_name
     # select dates
+
     # get the data
 
     # from tdi blog, slightly different than p171 in Pandas Wes McKinney
@@ -62,10 +62,10 @@ def graph():
     script, div = components(p)
     return render_template('graph.html', script=script, div=div) #, form=form) # added form=form
 
-
-@app.route('/success')
-def success():
-    return render_template('success.html')  # render a template
+# debug page
+#@app.route('/success')
+#def success():
+#    return render_template('success.html')  # render a template
 
 if __name__ == "__main__":
   app.run(port=33507)
