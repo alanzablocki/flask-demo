@@ -1,18 +1,12 @@
-# flask-demo
-Now without GIT_SSH commented out, using unset before sending to Github
+# Alan Zablocki 2016
 
-To update, update
-then
+# Known issues
 
-git init
-## Check if heroku is added
-
-git remote -v
-git add -A
-git commit -m "message"
-### asks for email and passwd
-heroku login
-git push heroku master
+ * only AAPL at the moment cannot pass string to graph method yet - hence Beta results
+ * no error if ticker true but no check box selected
+ * no date ranges later
+ * bokeh plot does not start with zoom functionality but TDI example does
+ * change : Please enter a stock ticker eg. GOOG, and check desired features to light gray
 
 ### App is live at
 http://tranquil-beyond-58925.herokuapp.com/index
