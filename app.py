@@ -1,5 +1,12 @@
 from flask import Flask, render_template, flash, request, redirect
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
+import requests
+import numpy as np
+import pandas as pd
+from bokeh.charts import Scatter
+from bokeh.plotting import figure, show
+from bokeh.io import output_notebook
+from bokeh.embed import components
 
 # App config.
 app = Flask(__name__)
@@ -22,8 +29,8 @@ def index():
         print name
 
         if form.validate():
-	    return redirect('/success')
-	    #return redirect('/graph')
+	    #return redirect('/success')
+	    return redirect('/graph')
             #flash('Thanks for registration ' + name)
         else:
             flash('Error: All the form fields are required. ')
