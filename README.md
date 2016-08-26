@@ -2,7 +2,7 @@
 
 # Known issues
 
- * only AAPL at the moment, still need to pass ticker string to graph method
+ * FIXED ! only AAPL at the moment, still need to pass ticker string to graph method
  * no error if ticker true but no check box selected
  * no date ranges, add later
  * bokeh plot does not start with zoom functionality but TDI example does
