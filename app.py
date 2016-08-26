@@ -61,7 +61,8 @@ def graph():
     df = df.set_index('Date')
     df.index = pd.to_datetime(df.index)
 
-    p = figure(width=400, height=300, x_axis_type="datetime",x_axis_label="Date",title=stock_name + " Stock", legend = 'top_left')
+    p = figure(width=400, height=300, x_axis_type="datetime",x_axis_label="Date",\
+    title=stock_name + " Stock") #, legend = 'top_left')
     p.line(df.index, df['Open'], color='green', legend='Opening Price')
    
     script, div = components(p)
