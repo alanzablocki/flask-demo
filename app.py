@@ -1,5 +1,5 @@
 from flask import Flask, render_template, flash, request, redirect
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
+from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, BooleanField
 import requests
 import numpy as np
 import pandas as pd
