@@ -64,7 +64,7 @@ def graph(name):
 
     p = figure(width=600, height=500, x_axis_type="datetime",x_axis_label="Date",\
     title=stock_name + " Stock", toolbar_location = "above") # , legend = 'top_left') # this throws an error
-    p.line(df.index, df['Open'], color='green', legend='Opening Price')
+    p.line(df.index, df['Close'], color='green', legend='Closing Price')
     # p.legend.orientation = "top_left" # returns server error
     script, div = components(p)
     return render_template('graph.html', script=script, div=div) #, form=form) # added form=form
